@@ -11,4 +11,7 @@ services:
       - /app/.next
     environment:
       - NODE_ENV=development
+      # Add your Supabase credentials here or use .env.local
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
     command: npm run dev

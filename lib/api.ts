@@ -68,19 +68,37 @@ const memory = {
 
 // --- Stories ---
 export async function getStories(placeId: string) {
-  await delay(rnd());
-  return memory.stories.filter((s) => s.placeId === placeId);
+  const params = new URLSearchParams({ placeId });
+  const response = await fetch(`/api/stories?${params}`);
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Failed to fetch stories');
+  }
+
+  const data = await response.json();
+  return data.stories;
 }
 
 export async function postStory(input: Omit<Story,"id"|"createdAt">) {
-  await delay(rnd());
-  const item: Story = {
-    ...input,
-    id: `s${Math.random().toString(36).slice(2,8)}`,
-    createdAt: new Date().toISOString(),
-  };
-  memory.stories.unshift(item);
-  return item;
+  const response = await fetch('/api/stories', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      placeId: input.placeId,
+      answerText: input.text,
+      tags: [],
+      photos: [],
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Failed to create story');
+  }
+
+  const data = await response.json();
+  return data.story;
 }
 
 // --- Traces ---

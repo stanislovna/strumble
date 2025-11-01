@@ -51,7 +51,7 @@ export default function PlacePage({
           <div className="opacity-60">Loading…</div>
         ) : (
           <div className="grid gap-4">
-            {stories.data?.map((s) => <StoryCard key={s.id} story={s} />)}
+            {stories.data?.map((s: any) => <StoryCard key={s.id} story={s} />)}
           </div>
         )}
         <div className="mt-4">
