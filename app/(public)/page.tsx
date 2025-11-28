@@ -1,5 +1,5 @@
 import Link from "next/link";
-import StrumbleMap from "@/components/Map";
+import GlobeMap from "@/components/GlobeMap";
 
 export default function Home() {
   return (
@@ -20,8 +20,8 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-4">Discover life around the world</h1>
           <p className="mb-6 text-gray-500">Culture, not infrastructure.</p>
 
-          {/* ВАЖНО: здесь именно компонент карты */}
-          <StrumbleMap />
+          {/* Карта здесь */}
+          <GlobeMap />
         </div>
       </section>
 

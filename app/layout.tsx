@@ -1,3 +1,4 @@
+import '@maptiler/sdk/dist/maptiler-sdk.css';
 import type { Metadata } from "next";
 import "./globals.css";
 import RQProvider from "@/lib/queryClient"; 
