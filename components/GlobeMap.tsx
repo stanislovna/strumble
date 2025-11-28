@@ -49,7 +49,7 @@ export default function GlobeMap() {
       });
 
       // 3) Отключение fog для globe, чтобы убрать warnings
-      map.setFog(null);
+      // map.setFog(null);
     });
 
     // Очистка
