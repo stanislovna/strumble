@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# protomaps - exclude large basemap files
+protomaps/*.pmtiles
+protomaps/*.mbtiles
+data/*.pmtiles
+data/*.mbtiles

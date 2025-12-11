@@ -39,7 +39,25 @@ SUPABASE_DB_URL=postgresql://postgres:password@host:port/database
 3. Go to Settings → API
 4. Copy the Project URL and anon/public key
 
-### 2. Start the Application
+### 2. Setup Protomaps (First Time Only)
+
+Extract Europe map tiles (one-time setup):
+
+```bash
+./setup-protomaps.sh
+```
+
+This will:
+- Download and extract Europe region (~500MB)
+- Start all services automatically
+
+**Alternative - Manual extraction:**
+```bash
+docker-compose --profile setup run pmtiles-extract
+docker-compose up
+```
+
+### 3. Start the Application
 
 ```bash
 docker-compose up
@@ -52,7 +70,7 @@ docker-compose up -d
 
 The application will be available at: **http://localhost:3000**
 
-### 3. Stop the Application
+### 4. Stop the Application
 
 ```bash
 docker-compose down
